@@ -1,0 +1,79 @@
+── R CMD check ─────────────────────────────────────────────────────────────────
+* using log directory ‘/tmp/RtmpANR0k9/filed69f2a0b6/styler.Rcheck’
+* using R version 4.3.0 (2023-04-21)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* R was compiled by
+    gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+    GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+* running under: Ubuntu 20.04.6 LTS
+* using session charset: UTF-8
+* using option ‘--no-manual’
+* checking for file ‘styler/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘styler’ version ‘1.9.1’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for .dll and .exe files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘styler’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking ‘build’ directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking startup messages can be suppressed ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking installed files from ‘inst/doc’ ... OK
+* checking files in ‘vignettes’ ... OK
+* checking examples ... OK
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ...
+  Running ‘testthat.R’
+ OK
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes in ‘inst/doc’ ... OK
+* checking running R code from vignettes ...
+  ‘caching.Rmd’ using ‘UTF-8’... OK
+  ‘customizing_styler.Rmd’ using ‘UTF-8’... OK
+  ‘detect-alignment.Rmd’ using ‘UTF-8’... OK
+  ‘distribute_custom_style_guides.Rmd’ using ‘UTF-8’... OK
+  ‘remove_rules.Rmd’ using ‘UTF-8’... OK
+  ‘strict.Rmd’ using ‘UTF-8’... OK
+  ‘styler.Rmd’ using ‘UTF-8’... OK
+  ‘third-party-integrations.Rmd’ using ‘UTF-8’... OK
+ NONE
+* checking re-building of vignette outputs ... OK
+* DONE
+Status: OK
+── R CMD check results ─────────────────────────────────────── styler 1.9.1 ────
+Duration: 3m 30.8s
+
+0 errors ✔ | 0 warnings ✔ | 0 notes ✔
