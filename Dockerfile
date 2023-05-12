@@ -1,4 +1,4 @@
-FROM rstudio/r-base:4.1.3-bionic
+FROM rstudio/r-base:4.3.0-focal
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
@@ -8,8 +8,8 @@ RUN apt-get update && \
     eatmydata apt-get install -y --no-install-recommends git && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG CRAN=https://packagemanager.rstudio.com/cran/__linux__/bionic/2023-03-10+L-i8FJMJ
-RUN printf 'options(repos = c("CRAN"= "%s"))\n' "$CRAN" >/opt/R/4.1.3/lib/R/etc/Rprofile.site
+ARG CRAN=https://packagemanager.rstudio.com/cran/__linux__/focal/2023-03-10+L-i8FJMJ
+RUN printf 'options(repos = c("CRAN"= "%s"))\n' "$CRAN" >/opt/R/4.3.0/lib/R/etc/Rprofile.site
 RUN curl -fSsL -O https://cran.rstudio.com/src/contrib/styler_1.9.1.tar.gz
 RUN Rscript -e 'install.packages(c("remotes", "rcmdcheck"))' && \
     Rscript -e 'remotes::install_deps("styler_1.9.1.tar.gz", dependencies = TRUE, upgrade = "always")' && \
