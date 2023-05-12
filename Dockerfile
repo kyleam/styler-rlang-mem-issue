@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 ARG CRAN=https://packagemanager.rstudio.com/cran/__linux__/focal/2023-03-10+L-i8FJMJ
 RUN printf 'options(repos = c("CRAN"= "%s"))\n' "$CRAN" >/opt/R/4.3.0/lib/R/etc/Rprofile.site
-RUN curl -fSsL -O https://cran.rstudio.com/src/contrib/styler_1.9.1.tar.gz
+RUN curl -fSsL -O https://packagemanager.rstudio.com/cran/2023-05-12+bqFWVFWh/src/contrib/styler_1.9.1.tar.gz
 RUN Rscript -e 'install.packages(c("remotes", "rcmdcheck"))' && \
     Rscript -e 'remotes::install_deps("styler_1.9.1.tar.gz", dependencies = TRUE, upgrade = "always")' && \
     rm -rf /tmp/R*
