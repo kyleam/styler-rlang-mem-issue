@@ -1,6 +1,9 @@
 
-.PHONY: all
-all: output/bad.mem.stdout output/good.mem.stdout output/latest.mem.stdout
+output/mem.svg: output/bad.mem.stdout
+output/mem.svg: output/good.mem.stdout
+output/mem.svg: output/latest.mem.stdout
+output/mem.svg: plot-mem.R
+	Rscript plot-mem.R
 
 output/bad.mem.stdout:
 	docker build -t styler-rlang-mem:bad .
