@@ -2,6 +2,8 @@
 output/mem.svg: output/bad.mem.stdout
 output/mem.svg: output/good.mem.stdout
 output/mem.svg: output/latest.mem.stdout
+output/mem.svg: output/styler-revert.mem.stdout
+output/mem.svg: output/styler-unreleased.mem.stdout
 output/mem.svg: plot-mem.R
 	Rscript plot-mem.R
 
@@ -24,3 +26,21 @@ output/latest.mem.stdout:
 	  .
 	mkdir -p output
 	docker run -v $$(pwd)/output:/scratch -it --rm styler-rlang-mem:latest latest
+
+output/styler-revert.mem.stdout:
+	docker build -t styler-rlang-mem:styler-revert \
+	  --build-arg CRAN=https://packagemanager.rstudio.com/cran/__linux__/focal/2023-05-12+bqFWVFWh \
+	  --build-arg RLANG_COMMIT=194c085b03138edc486efecdf86ebb7604bd6bc8 \
+	  .
+	mkdir -p output
+	docker run -v $$(pwd)/output:/scratch -it --rm \
+	  styler-rlang-mem:styler-revert --styler=revert styler-revert
+
+output/styler-unreleased.mem.stdout:
+	docker build -t styler-rlang-mem:styler-unreleased \
+	  --build-arg CRAN=https://packagemanager.rstudio.com/cran/__linux__/focal/2023-05-12+bqFWVFWh \
+	  --build-arg RLANG_COMMIT=194c085b03138edc486efecdf86ebb7604bd6bc8 \
+	  .
+	mkdir -p output
+	docker run -v $$(pwd)/output:/scratch -it --rm \
+	  styler-rlang-mem:styler-unreleased --styler=unreleased styler-unreleased

@@ -2,11 +2,45 @@
 
 set -eu
 
-test $# = 1 || {
-    printf >&2 'requires one argument, the case label\n'
+usage () {
+    printf >&2 'check.sh [--styler=(unreleased|revert)] <case>\n'
     exit 1
 }
+
+styler=
+case "$1" in
+    --styler=unreleased)
+        styler=unreleased
+        shift
+        ;;
+    --styler=revert)
+        styler=revert
+        shift
+        ;;
+    -*)
+        usage
+        ;;
+esac
+
+test $# = 1 || usage
 case=$1
+
+if test -n "$styler"
+then
+    rm /styler_1.9.1.tar.gz
+    git clone https://github.com/r-lib/styler /styler
+    git -C /styler checkout 8e9ac82333c2a0036a1653a029b6437008650f34
+
+    if test "$styler" = revert
+    then
+        git -C /styler revert -n 99d502fcf634088f8ae4f09a17c71a7ae7a03b65
+    fi
+
+    (
+        cd /
+        R CMD build styler
+    )
+fi
 
 NO_COLOR=1
 export NO_COLOR
